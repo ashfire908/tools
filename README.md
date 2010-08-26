@@ -8,4 +8,5 @@ in this collection.
 Scripts and Tools
 -----------------
 
-* None.
+* GitHub Repo Updater - A post-recieve hook that updates local git repos on
+commit. Keeps a log of updates and errors. (github_repo_updater.php)

@@ -8,5 +8,7 @@ in this collection.
 Scripts and Tools
 -----------------
 
-* GitHub Repo Updater - A post-recieve hook that updates local git repos on
+* GitHub Repo Updater - A post-receive hook that updates local git repos on
 commit. Keeps a log of updates and errors. (github_repo_updater.php)
+* Remote Wireshark - Connects to another machine via SSH, starts tshark remotely,
+and returns the sniffed traffic to Wireshark running locally on your machine.

@@ -1,0 +1,68 @@
+@charset "utf-8";
+/* Image Gallery CSS */
+
+/* Remove blue border from images */
+a img { border-style: none; }
+
+/* Loading Icon */
+.loading_icon {
+  background: url("/loading_icon.gif") no-repeat 50% 50%;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+}
+
+/* Image Gallery */
+.image_gallery {
+  margin: 0 auto;
+  overflow: hidden;
+  background-color: #CC0000;
+  border: 3px outset red;
+  /* Color fix for Gecko Engine */
+  -moz-border-top-colors: #BB0000 #FF0000;
+  -moz-border-right-colors: #440000 #880000;
+  -moz-border-bottom-colors: #440000 #880000;
+  -moz-border-left-colors: #BB0000 #FF0000;
+}
+
+.image_gallery noscript { text-align: center; }
+
+/* Image Holder */
+.ig_imageholder {
+  padding-right: 130px; /* Match with image selector width */
+  text-align: center;
+  z-index: 1;
+  margin: .5em;
+}
+.ig_msg { text-align: center; }
+.ig_msgholder { padding-right: 0 !important; }
+.ig_imageholder * { text-align: center; }
+.ig_imageholder *:first-child { margin-top: 0; }
+.ig_imageholder img + * { margin-top: 0; }
+.ig_imageholder a img, .ig_imageholder img, .ig_imageholder .ig_imagename, .ig_imageholder .ig_imagedesc { margin-top: .5em; }
+.ig_imageholder .ig_imagename { display: block; }
+
+/* Image Selector */
+ul.ig_imageselector {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 130px; /* When changing this, update .ig_imageholder padding-right */
+  float: right;
+  overflow-y: scroll;
+  list-style-type: none;
+  background-color: #FF0000;
+  position: relative;
+  z-index: 2;
+}
+
+ul.ig_imageselector li {
+  text-align: center;
+  padding-top: 2px;
+}
+
+ul.ig_imageselector li img {
+  width: 100px;
+  height: auto;
+}
+

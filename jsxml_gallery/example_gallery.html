@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <title>Example Gallery</title>
+  <link href="gallery.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="jquery.js"></script>
+  <script type="text/javascript" src="gallery.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function() {
+    // Create Gallery
+	loadGallery("example_gallery.xml", "example_gallery");
+  });
+  </script>
+</head>
+
+<body>
+  <h1>Example Gallery</h1>
+    <div class="image_gallery" id="igid_example_gallery" style="height: 300px; width: 500px;">
+      <noscript><p>To view the gallery you need to be using a JavaScript-Enabled Browser.</p></noscript>
+    </div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<galleries>
+<!-- Example gallery -->
+<gallery name="Example Gallery" id="example_gallery">
+    <!-- Example image, with all the trimmings -->
+    <image id="example1" source="example1.jpg" link="http://www.example.com/" height="130" width="130">
+	    <name>Example Image 1</name>
+		<alt>Example Image 1 - (alternate text)</alt>
+		<caption>Image 1</caption>
+		<description>This is the first example image.</description>
+	</image>
+	<!-- Example image, with the bare minimum -->
+	<image id="example2" source="example2.jpg" height="130" width="130">
+		<alt>Example Image 2 - (alternate text)</alt>
+	</image>
+</gallery>
+</galleries>

@@ -1,0 +1,8 @@
+# Git ignore
+
+# Ignore files from Eclipse
+.project
+
+# jQuery.js (for image gallery)
+jsxml_gallery/jquery.js
+

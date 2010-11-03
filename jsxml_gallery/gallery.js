@@ -36,7 +36,7 @@ function loadGallery(xmlurl, galleryid) {
 			window.galleryerror[galleryid] = [request.status, request.statusText];
 			createGallery(xmlurl, galleryid)
 		}
-		});
+	});
 };
 
 function createGallery(xmlurl, galleryid) {
@@ -46,7 +46,7 @@ function createGallery(xmlurl, galleryid) {
 		message = imageholder_noimagetext;
 		var do_gallery = true;
 	} else if (window.gallerystatus[galleryid] == "no_data") {
-	    message = imageholder_noxmldata + xmlurl + '"';
+		message = imageholder_noxmldata + xmlurl + '"';
 	} else if (window.gallerystatus[galleryid] == "no_xml") {
 		message = imageholder_noxmlfile + xmlurl + '" Error: ' + window.galleryerror[galleryid][0] + " " + window.galleryerror[galleryid][1];
 	} else {
@@ -55,8 +55,8 @@ function createGallery(xmlurl, galleryid) {
 	// Load up the actual gallery
 	var gallery = $("#igid_" + galleryid);
 	if (do_gallery) {
-	    // Get image selector
-        var imageselector = generateImageSelector(galleryid);
+		// Get image selector
+		var imageselector = generateImageSelector(galleryid);
 	}
 	// Get blank image holder
 	var imageholder = generateImageHolder_blank(message);
@@ -77,30 +77,31 @@ function switchImage(galleryid, imageid) {
 	gallery.addClass("loading_icon");
 	// Get data on requested image
 	var requestedimage = window.galleryxmldata[galleryid].find('image[id="' + imageid + '"]');
-	
+
 	// Calculate compensation
 	// Calculate top and bottom margin compensation
 	var margin_top = parseInt(currentimage.css("margin-top").slice(0,currentimage.css("margin-top").length - 2));
 	var margin_bottom = parseInt(currentimage.css("margin-bottom").slice(0,currentimage.css("margin-bottom").length - 2));
 	var marginpad_height_compensate = margin_top + margin_bottom;
-	
+
 	// Calculate left and right margin compensation
 	var margin_left = parseInt(currentimage.css("margin-left").slice(0,currentimage.css("margin-left").length - 2));
 	var margin_right = parseInt(currentimage.css("margin-right").slice(0,currentimage.css("margin-right").length - 2));
 	var marginpad_width_compensate = margin_left + margin_right;
-	
+
 	// Calculate border compensation
 	var border_top = parseInt(gallery.css("border-top-width").slice(0,gallery.css("border-top-width").length - 2));
 	var border_bottom = parseInt(gallery.css("border-bottom-width").slice(0,gallery.css("border-bottom-width").length - 2));
 	var border_compensate = border_top + border_bottom;
-	
+
 	// Building image request
-	var newimagesettings = {"id":		requestedimage.attr("id"),
-							"src":		requestedimage.attr("src"),
-							"height":	requestedimage.attr("height"),
-							"width":	requestedimage.attr("width"),
-							"alt":		requestedimage.find("alt").text()
-						   };
+	var newimagesettings = {
+			"id":		requestedimage.attr("id"),
+			"src":		requestedimage.attr("src"),
+			"height":	requestedimage.attr("height"),
+			"width":	requestedimage.attr("width"),
+			"alt":		requestedimage.find("alt").text()
+	};
 	if (requestedimage.children("caption").length == 1) {
 		newimagesettings["caption"] = requestedimage.find("caption").text()
 	};
@@ -118,7 +119,7 @@ function switchImage(galleryid, imageid) {
 	// Effects
 	newimage.hide();
 	gallery.append(newimage);
-	
+
 	// Calculate required minimum height and width
 	var needed_height = newimage.height() + marginpad_height_compensate;
 	var needed_width = newimage.width() + imageselector.width() + marginpad_width_compensate;
@@ -128,24 +129,24 @@ function switchImage(galleryid, imageid) {
 	} else {
 		var nudge_vert = (needed_height - newimage.height()) / 2 - border_compensate;
 	}
-	
+
 	// Check gallery width and height
 	if (gallery.width() < needed_width && gallery.height() < needed_height) {
 		// Gallery is too narrow and short to display the image
 		gallery.animate({
-						"width": needed_width,
-						"height": needed_height
-						}, "normal");
+			"width": needed_width,
+			"height": needed_height
+		}, "normal");
 	} else if (gallery.width() < needed_width) {
 		// Gallery is too narrow to display the image
 		gallery.animate({
-						"width": needed_width
-						}, "normal");
+			"width": needed_width
+		}, "normal");
 	} else if (gallery.height() < needed_height) {
 		// Gallery is too short to display the image
 		gallery.animate({
-						"height": needed_height
-						}, "normal");
+			"height": needed_height
+		}, "normal");
 	}
 	// Switch images
 	currentimage.fadeOut("slow", function() {
@@ -166,9 +167,9 @@ function generateImageSelector(galleryid) {
 		var image_item = $(document.createElement("li"));
 		var image = $(document.createElement("img"));
 		image.attr({
-					  "src": self.attr("src"),
-					  "alt": self.find("alt").text()
-					  });
+			"src": self.attr("src"),
+			"alt": self.find("alt").text()
+		});
 		if (self.children("caption").length == 1) { image.attr("title", self.find("caption").text()); }
 		image.click(function() { switchImage(galleryid, self.attr("id")); });
 		image_item.append(image);
@@ -178,18 +179,16 @@ function generateImageSelector(galleryid) {
 };
 
 function generateImageHolder(settings) {
-	var holder = $("<div></div>")
-				.attr({
-					"class":	'ig_imageholder',
-					"id":		settings["id"]
-				});
-	var img = $('<img>')
-				.attr({
-					"src":		settings["src"],
-					"height":	settings["height"],
-					"width":	settings["width"],
-					"alt":		settings["alt"]
-				});
+	var holder = $("<div></div>").attr({
+		"class":	'ig_imageholder',
+		"id":		settings["id"]
+	});
+	var img = $('<img>').attr({
+		"src":		settings["src"],
+		"height":	settings["height"],
+		"width":	settings["width"],
+		"alt":		settings["alt"]
+	});
 	if ("caption" in settings) { img.attr("title", settings["caption"]); }
 	if ("link" in settings) {
 		$("<a></a>").attr("href", settings["link"]).append(img).appendTo(holder);
@@ -208,8 +207,7 @@ function generateImageHolder_blank(message) {
 		holder.addClass("ig_msgholder");
 	}
 	var message_span = $(document.createElement("span"));
-	message_span.addClass("ig_msg")
-                .text(message);
+	message_span.addClass("ig_msg").text(message);
 	holder.append(message_span);
-    return holder
+	return holder
 };

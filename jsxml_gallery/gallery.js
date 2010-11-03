@@ -95,11 +95,11 @@ function switchImage(galleryid, imageid) {
 	var border_compensate = border_top + border_bottom;
 	
 	// Building image request
-	var newimagesettings = {"id":			requestedimage.attr("id"),
-							"source":		requestedimage.attr("source"),
-							"height":		requestedimage.attr("height"),
-							"width":		requestedimage.attr("width"),
-							"alt":			requestedimage.find("alt").text()
+	var newimagesettings = {"id":		requestedimage.attr("id"),
+							"src":		requestedimage.attr("src"),
+							"height":	requestedimage.attr("height"),
+							"width":	requestedimage.attr("width"),
+							"alt":		requestedimage.find("alt").text()
 						   };
 	if (requestedimage.children("caption").length == 1) {
 		newimagesettings["caption"] = requestedimage.find("caption").text()
@@ -166,7 +166,7 @@ function generateImageSelector(galleryid) {
 		var image_item = $(document.createElement("li"));
 		var image = $(document.createElement("img"));
 		image.attr({
-					  "src": self.attr("source"),
+					  "src": self.attr("src"),
 					  "alt": self.find("alt").text()
 					  });
 		if (self.children("caption").length == 1) { image.attr("title", self.find("caption").text()); }
@@ -185,7 +185,7 @@ function generateImageHolder(settings) {
 				});
 	var img = $('<img>')
 				.attr({
-					"src":		settings["source"],
+					"src":		settings["src"],
 					"height":	settings["height"],
 					"width":	settings["width"],
 					"alt":		settings["alt"]

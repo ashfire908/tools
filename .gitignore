@@ -2,6 +2,8 @@
 
 # Ignore files from Eclipse
 .project
+.pydevproject
+.settings/
 
 # jQuery.js (for image gallery)
 jsxml_gallery/jquery.js

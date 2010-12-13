@@ -6,7 +6,7 @@ a img { border-style: none; }
 
 /* Loading Icon */
 .loading_icon {
-  background: url("/loading_icon.gif") no-repeat 50% 50%;
+  background: url("loading_icon.gif") no-repeat 50% 50%;
   height: 100%;
   width: 100%;
   z-index: 2;

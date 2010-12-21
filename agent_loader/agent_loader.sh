@@ -25,7 +25,7 @@ AUTH_SOCK="$HOME/.ssh/agent_auth_sock"
 find_agent () {
   if [ "$OS" = "Windows_NT" ]; then
     # We appear to be in cygwin, use workaround
-    ps -u $UID -s | AGENT_PATH=`which ssh-agent` awk '{if ($4 == ENVIRON["AGENT_PATH"]) {print $1}}'
+    ps -u $UID -s | awk '{if ($4 ~ /ssh-agent$/) {print $1}}'
   else
     ps -C ssh-agent -o pid,uid | CUID=$UID awk '{if ($2 == ENVIRON["CUID"]) {print $1}}'
   fi

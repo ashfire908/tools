@@ -1,9 +1,10 @@
 Ashfire's Tools
 ===============
 
-This is a collection of Ashfire908's (Andrew Hampe) tools and scripts that he
-has made or found over time. Below is a list of the scripts currently contained
-in this collection.
+This is a collection of old tools and scripts I made while learning programming.
+They are all probably pretty horrible now, but are collected here ~~to shame
+me~~ for posterity. Below is a list of the scripts currently contained in this
+collection.
 
 Scripts and Tools
 -----------------
@@ -19,3 +20,8 @@ Scripts and Tools
   configure the shell to use the started SSH agent, and load in the SSH keys.
   Useful for remote shells or systems you don't have a built-in preconfigured
   SSH agent for. (agent_loader/)
+* Fallout Terminal Hacker - Script that assists with the terminal hacking
+  minigame in Fallout 3 (and later games). One of the first (if not the first)
+  programs I ever wrote. Designed for Linux terminals; term color codes probably
+  won't work on Windows. Last modified in 2009 before having a styling/typo pass
+  and being committed. (fallout3/)
